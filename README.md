@@ -1,7 +1,7 @@
 latex-homework-template
 =======================
 
-The LaTeX file that I use as the base for all my homeworks in university. You should follow [me on Twitter][twitter].
+The LaTeX file that I use as the base for all my homeworks in university.
 
 ## Features
 
@@ -42,19 +42,14 @@ Here are just a few features of this homework template.
    ```bash
    $ latexmk homework.tex
    ```
-3. Or you can use [TeXShop][texshop] or a similar native client to typeset the
+3. Or you can use [TeXShop][http://pages.uoregon.edu/koch/texshop/] or a similar native client to typeset the
    LaTeX file.
 
 ## Credit
 
-When first starting with LaTeX, I came across [this template][credit] and used
-it as a base for starting my template. As you can see, it is pretty similar.
+This is based off of this [template](https://github.com/jdavis/latex-homework-template) by [Josh Davis](https://github.com/jdavis)
 
 ## License
 
 This code is distributed under the MIT license. For more info, read the
 [LICENSE](/LICENSE) file distributed with the source code.
-
-[texshop]: http://pages.uoregon.edu/koch/texshop/
-[credit]: http://www.latextemplates.com/template/programming-coding-assignment
-[twitter]: https://twitter.com/jldavis
