@@ -1,0 +1,212 @@
+\documentclass{article}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{scrextend}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\authorName}
+\chead{\notesClass\ (\classInstructor)}
+\rhead{\notesDate}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+\newtcolorbox{definition}{colframe=DarkViolet!40!black,colback=LightSlateGray!15!white,fonttitle=\bfseries,title=Definition}
+
+\newtcolorbox{example}[1]{colframe=DarkSlateGray!75!black,colback=LightSlateGray!15!white,fonttitle=\bfseries,title=Example: {#1}}
+
+\newtcolorbox{subproblem}[1]{colframe=DarkGreen!65!black,colback=LightSlateGray!15!white,fonttitle=\bfseries,title={#1}}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\notesDate}{November 9, 2022}
+\newcommand{\notesClass}{Calculus 3}
+% \newcommand{\hmwkClassTime}{Section 4.1}
+\newcommand{\classInstructor}{Erin Craig}
+\newcommand{\authorName}{\textbf{Moss Gallagher}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\notesClass}}\\
+    \normalsize\vspace{0.1in}\small{\notesDate}\\
+    \vspace{0.1in}\large{\textit{\classInstructor}}
+    \vspace{3in}
+}
+
+\author{\authorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for quickly taking notes
+\newcommand{\newsection}[3][2]{\section{Section #2: #3}}
+% \newcommand{\example}[1]{\subsection{Example: #1}}
+% \newcommand{\subproblem}[1]{\quad \quad \large{#1}}
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\newsection{4.1}{Functions of Several Variables}
+
+\begin{definition}
+	A \textbf{vector-valued function} is a function of the form
+	$$r(t) = f(t)i + g(t)j \quad or \quad r(t) = f(t)i + g(t)j + h(t)k$$
+	where the \textbf{component functions} $f$. $g$. and $h$, are real-valued functions of the parameter t. Vector-valued functions are also written in the form
+	$$r(t) = \left< f(t), g(t) \right> \quad or \quad r(t) = \left< f(t), g(t), h(t) \right>$$
+	In both cases, the first form of the function defines a two-dimensional vector valued function; the second form describes a three-dimensional vector valued function.
+\end{definition}
+
+\begin{example}{Evaluate the functions at $r(0)$, $r\left(\frac{\pi}{2}\right)$, $r\left(\frac{2\pi}{3}\right)$}
+
+	\begin{subproblem}{$r(t)$ = $\left<t, 1\right>$}
+		\textbf{At $r\left(0\right)$}
+		\[\begin{split}
+			r(0) &= \left<0, 1\right>
+		\end{split}\] \\
+		\textbf{At $r\left(\frac{\pi}{2}\right)$}
+		\[
+			\begin{split}
+			r(\frac{\pi}{2}) &= \left<\frac{\pi}{2}, 1\right>
+			\end{split}
+		\] \\
+		\textbf{At $r\left(\frac{2\pi}{3}\right)$}
+		\[
+			\begin{split}
+			r(\frac{2\pi}{3}) &= \left<\frac{2\pi}{3}, 1\right>
+			\end{split}
+		\]
+	\end{subproblem}
+
+	\begin{subproblem}{$r(t)$ = $\left<t^2, t\right>$}
+		\textbf{At $r\left(0\right)$}
+		\[\begin{split}
+			r(0) &= \left<0^2, 0\right> \\
+			r(0) &= \left<0, 0\right>
+		\end{split}\] \\
+		\textbf{At $r\left(\frac{\pi}{2}\right)$}
+		\[
+			\begin{split}
+			r(\frac{\pi}{2}) &= \left<\frac{\pi}{2}^2, \frac{\pi}{2}\right> \\
+			r(\frac{\pi}{2}) &= \left<\frac{\pi^2}{4}, \frac{\pi}{2}\right>
+			\end{split}
+		\] \\
+		\textbf{At $r\left(\frac{2\pi}{3}\right)$}
+		\[
+			\begin{split}
+			r(\frac{2\pi}{3}) &= \left<\frac{2\pi}{3}^2, \frac{2\pi}{3}\right> \\
+			r(\frac{2\pi}{3}) &= \left<\frac{4\pi^2}{9}, \frac{2\pi}{3}\right>
+			\end{split}
+		\]
+	\end{subproblem}
+
+\end{example}
+
+\end{document}
