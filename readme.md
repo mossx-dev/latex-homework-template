@@ -1,4 +1,4 @@
-latex-homework-template
+latex-templates
 =======================
 
 The LaTeX file that I use as the base for all my homeworks in university.
@@ -42,8 +42,7 @@ Here are just a few features of this homework template.
    ```bash
    $ latexmk homework.tex
    ```
-3. Or you can use [TeXShop][http://pages.uoregon.edu/koch/texshop/] or a similar native client to typeset the
-   LaTeX file.
+3. Or you can do what I do and use [vimtex](https://github.com/lervag/vimtex).
 
 ## Credit
 
